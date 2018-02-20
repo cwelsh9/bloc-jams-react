@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
-import PlayerBar from './PlayerBar';
+import PlayerBar from './../PlayerBar';
 
 class Album extends Component {
   constructor(props) {
@@ -65,6 +65,7 @@ class Album extends Component {
       if (!isSameSong) { this.setSong(song); }
       this.play();
     }
+    }
 
   handlePrevClick() {
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
@@ -96,7 +97,7 @@ class Album extends Component {
 
   formatTime(currentTime) {
     if (currentTime === null || NaN) {
-      return "-:--"
+      return "-:--";
     } else {
     String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(currentTime, 10);
@@ -123,7 +124,7 @@ class Album extends Component {
             <h2 className="artist">{this.state.album.artist}</h2>
             <div id="release-info">{this.state.album.releaseInfo}</div>
           </div>
-      </section>
+          </section>
       <table id="song-list">
           <colgroup>
             <col id="song-number-column" />
@@ -134,7 +135,7 @@ class Album extends Component {
           <section className='album'>
             {
               this.state.album.songs.map( (setSong, index) =>
-                <tr className="song" key={index} onClick={() = this.handleSongClick(song)} >
+                <tr className="song" key={index} onClick={() => this.handleSongClick(this.state.currentSong)} >
                   <td className="song-actions">
                     <button>
                       <span className="song-number">{index+1}</span>
@@ -142,10 +143,11 @@ class Album extends Component {
                       <span className="ion-pause"></span>
                     </button>
                   </td>
-                  <td className="song-title">{song.title}</td>
-                  <td className="song-duration">{song.duration}</td>
-              )
-            }
+                  <td className="song-title">{this.state.album.songs.title}</td>
+                  <td className="song-duration">{this.state.album.songs.duration}</td>
+              </tr>
+                )
+              }
           </section>
           </tbody>
         </table>
@@ -160,8 +162,8 @@ class Album extends Component {
           handleTimeChange={(e) => this.handleTimeChange(e)}
           handleVolumeChange={(e) => this.handleVolumeChange(e)}
         />
-      </section>
-    );
+        </section>
+    )
   }
 }
 
