@@ -99,7 +99,7 @@ class Album extends Component {
     if (currentTime === null || NaN) {
       return "-:--";
     } else {
-    String.prototype.toHHMMSS = function () {
+    String.toHHMMSS = function () {
     var sec_num = parseInt(currentTime, 10);
     var hours   = Math.floor(sec_num / 3600);
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -118,7 +118,7 @@ class Album extends Component {
     return (
       <section className="album">
         <section id="album-info">
-          <img id="album-cover-art" src={this.state.album.albumCover} />
+          <img id="album-cover-art" src={this.state.album.albumCover} alt="album cover"/>
           <div className="album-details">
             <h1 id="album-title">{this.state.album.title}</h1>
             <h2 className="artist">{this.state.album.artist}</h2>
