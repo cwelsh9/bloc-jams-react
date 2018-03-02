@@ -65,7 +65,7 @@ class Album extends Component {
       if (!isSameSong) { this.setSong(song); }
       this.play();
     }
-    }
+  }
 
   handlePrevClick() {
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
@@ -99,19 +99,19 @@ class Album extends Component {
     if (currentTime === null || NaN) {
       return "-:--";
     } else {
-    String.toHHMMSS = function () {
-    var sec_num = parseInt(currentTime, 10);
-    var hours   = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+      String.toHHMMSS = function () {
+        var sec_num = parseInt(currentTime, 10);
+        var hours   = Math.floor(sec_num / 3600);
+        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+        var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    return hours+':'+minutes+':'+seconds;
+        if (hours   < 10) {hours   = "0"+hours;}
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        return hours+':'+minutes+':'+seconds;
+      }
     }
   }
-}
 
 
   render() {
@@ -125,14 +125,13 @@ class Album extends Component {
             <div id="release-info">{this.state.album.releaseInfo}</div>
           </div>
           </section>
-      <table id="song-list">
-          <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
-          </colgroup>
+          <table id="song-list">
+            <colgroup>
+              <col id="song-number-column" />
+              <col id="song-title-column" />
+              <col id="song-duration-column" />
+            </colgroup>
           <tbody>
-          <section className='album'>
             {
               this.state.album.songs.map( (setSong, index) =>
                 <tr className="song" key={index} onClick={() => this.handleSongClick(this.state.currentSong)} >
@@ -148,7 +147,6 @@ class Album extends Component {
               </tr>
                 )
               }
-          </section>
           </tbody>
         </table>
         <PlayerBar
@@ -162,7 +160,7 @@ class Album extends Component {
           handleTimeChange={(e) => this.handleTimeChange(e)}
           handleVolumeChange={(e) => this.handleVolumeChange(e)}
         />
-        </section>
+      </section>
     )
   }
 }
