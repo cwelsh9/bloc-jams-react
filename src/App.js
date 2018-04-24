@@ -8,21 +8,21 @@ import Album from './components/Album';
 class App extends Component {
   render() {
     return (
-      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" className="App">
-        <header class="mdl-layout__header">
-          <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header App">
+        <header className="mdl-layout__header">
+          <div className="mdl-layout__header-row">
+            <span className="mdl-layout-title">
               <Link style={{textDecoration: "none"}} to="/">Bloc Jams</Link>
             </span>
-            <div class="mdl-layout-spacer"></div>
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <div className="mdl-layout-spacer"></div>
+            <nav className="mdl-navigation mdl-layout--large-screen-only">
 
-              <Link class="mdl-navigation__link" to='/library'>Library</Link>
+              <Link className="mdl-navigation__link" to='/library'>Library</Link>
             </nav>
           </div>
         </header>
-        <main class="mdl-layout__content">
-          <div class="page-content">
+        <main className="mdl-layout__content">
+          <div className="page-content">
             <Route exact path="/" component={Landing} />
             <Route path="/library" component={Library} />
             <Route path="/album/:slug" component={Album} />
